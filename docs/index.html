@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>ごじゃ心理テスト</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="ごじゃ心理テスト">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+  <main class="wrap">
+
+    <!-- start -->
+    <section id="screenStart" class="card">
+      <div class="title">ごじゃ心理テスト</div>
+      <div class="desc">
+        直感で2択を押すだけ。<br>
+        途中で閉じても続きから再開される。
+      </div>
+      <button id="btnStart" class="btn primary">開始</button>
+      <div id="startMsg" class="sub">※進捗は表示しない</div>
+    </section>
+
+    <!-- quiz -->
+    <section id="screenQuiz" class="card hidden">
+      <div class="title">質問</div>
+      <div id="qText" class="qText">読み込み中...</div>
+
+      <div class="choices">
+        <button id="btnA" class="btn choice"></button>
+        <button id="btnB" class="btn choice"></button>
+      </div>
+
+      <div class="subRow">
+        <div id="saveLamp" class="lamp">自動保存</div>
+        <button id="btnReset" class="btn ghost">最初から</button>
+      </div>
+    </section>
+
+    <!-- done -->
+    <section id="screenDone" class="card hidden">
+      <div class="title">質問は終了しました。</div>
+      <div class="desc">
+        以下の文字列を星野に送ってください。<br>
+        （数字とドットだけ）
+      </div>
+
+      <textarea id="cipherOut" class="out" readonly></textarea>
+
+      <div class="row">
+        <button id="btnCopy" class="btn primary">コピー</button>
+        <button id="btnRestart" class="btn ghost">もう一度</button>
+      </div>
+
+      <div id="copyMsg" class="sub"></div>
+    </section>
+
+  </main>
+
+  <script type="module" src="./js/app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) navigator.serviceWorker.register("./sw.js");
+  </script>
+</body>
+</html>
