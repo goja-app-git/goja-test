@@ -1,0 +1,9 @@
+{
+  "name": "ごじゃ心理テスト",
+  "short_name": "心理テスト",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": []
+}
